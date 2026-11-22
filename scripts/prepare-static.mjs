@@ -23,5 +23,5 @@ if (count > 20000 || total > 1024 ** 3) throw new Error("Static artifact exceeds
 const version = hash.digest("hex").slice(0, 12);
 const sw = (await readFile("public/sw.js", "utf8")).replace(/const STATIC_ASSETS = (\[[\s\S]*?\]);/, (_, list) => `const STATIC_ASSETS = ${JSON.stringify([...new Set([...JSON.parse(list), ...chunks])])};`);
 await writeFile("out/sw.js", sw.replace(/const CACHE_NAME = .*;/, `const CACHE_NAME = "vardiya-${version}";`));
-await writeFile("out/_headers", "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n/sw.js\n  Cache-Control: no-cache\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n");
+await writeFile("out/_headers", "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n/api/og\n  Content-Type: image/png\n/sw.js\n  Cache-Control: no-cache\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n");
 console.log(JSON.stringify({files:count,totalMiB: +(total/1024**2).toFixed(2),runtime:"static only"}));
