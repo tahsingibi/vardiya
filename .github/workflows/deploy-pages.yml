@@ -1,17 +1,19 @@
 name: Publish Vardiya
 on:
   push:
-    branches: [feat/hosting]
+    branches: [dev, main]
     paths-ignore: ['**/*.md']
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: vardiya-pages-production
+  group: vardiya-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   publish:
-    if: github.repository == 'tahsingibi/vardiya' && github.ref == 'refs/heads/feat/hosting'
+    if: github.repository == 'tahsingibi/vardiya'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -28,7 +30,9 @@ jobs:
       - run: npm run build
       - run: npx playwright-core install --with-deps chromium
       - run: npm run test:static
-      - run: npm run deploy:pages
+      - name: Publish main to Vardiya Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: npm run deploy:pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.VARDIYA_CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.VARDIYA_CLOUDFLARE_ACCOUNT_ID }}

@@ -164,11 +164,10 @@ Bu proje [MIT Lisansı](LICENSE) kapsamında lisanslanmıştır. Detaylar için 
 Oyun adı **Vardiya**, repo `tahsingibi/vardiya`, hedef adres
 `https://vardiya.sungur.dev`.
 
-`feat/hosting` branch push’ları GitHub Actions üzerinde build ve gerçek tarayıcı
-testlerini çalıştırır, ardından yalnızca `vardiya` Direct Upload Pages projesine
-statik `out/` dosyalarını yükler. Cloudflare build’i, Worker, Functions, D1, KV veya
-R2 kullanılmaz. tahsinbey.com ve İKRA kaynakları değiştirilmez. `main` bu çalışma
-sırasında korunur; yeni branch için Vercel otomatik deployment kapalıdır.
+Geliştirme `dev` branch’indedir. `dev → main` pull request’leri GitHub Actions
+üzerinde build ve gerçek tarayıcı testlerinden geçer. Yalnızca `main` push’ları
+`vardiya` Direct Upload Pages projesine statik `out/` dosyalarını yükler. Cloudflare build’i, Worker, Functions, D1, KV veya
+R2 kullanılmaz. tahsinbey.com ve İKRA kaynakları değiştirilmez. Canlı yayın kaynağı `main`, geliştirme kaynağı `dev` branch’idir. Vercel kullanılmaz.
 
 ```sh
 npm ci
