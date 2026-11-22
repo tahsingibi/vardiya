@@ -28,7 +28,7 @@ export const OgHeader: React.FC<OgHeaderProps> = ({
           src={logoUrl}
           width={isCompact ? 56 : 72}
           height={isCompact ? 56 : 72}
-          alt="Kurye 35"
+          alt="Vardiya"
           style={{
             borderRadius: 18,
             border: `2px solid ${THEME.borderCard}`,
@@ -45,17 +45,7 @@ export const OgHeader: React.FC<OgHeaderProps> = ({
                 color: THEME.textMain,
               }}
             >
-              KURYE
-            </span>
-            <span
-              style={{
-                fontSize: isCompact ? 24 : 30,
-                fontWeight: 900,
-                letterSpacing: "-0.03em",
-                color: THEME.cyan,
-              }}
-            >
-              35
+              VARDİYA
             </span>
             <div
               style={{

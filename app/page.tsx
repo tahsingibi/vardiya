@@ -1,6 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { migrateLegacyStorage } from "@/utils/legacy-storage";
+
+if (typeof window !== "undefined") {
+  try {
+    migrateLegacyStorage(window.localStorage);
+    migrateLegacyStorage(window.sessionStorage);
+  } catch { /* Storage can be disabled by browser settings. */ }
+}
 
 const GameContainer = dynamic(
   () => import("@/components/game-container").then((mod) => mod.GameContainer),

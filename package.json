@@ -1,18 +1,22 @@
 {
-  "name": "kurye35-game",
+  "name": "vardiya",
   "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/tahsingibi/kurye35-game.git"
+    "url": "https://github.com/tahsingibi/vardiya.git"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && node scripts/prepare-static.mjs",
+    "start": "node scripts/serve-static.mjs",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test:static": "node scripts/test-static.mjs",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
   },
   "dependencies": {
+    "html-to-image": "^1.11.13",
     "next": "^14.2.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -22,8 +26,10 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
+    "playwright-core": "^1.65.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "wrangler": "4.166.0"
   }
 }

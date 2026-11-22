@@ -1,4 +1,4 @@
-# 🛵🚗 Kurye 35: İzmir Vardiyası
+# 🛵🚗 Vardiya
 
 İzmir'in körfez rüzgarından Alsancak trafiğine, Altınyol'dan Karşıyaka sahiline uzanan; gündüzden geceye yaşayan, teslimat ve kaçış odaklı retro-modern bir **HTML5 Canvas Arcade** oyunu. 
 
@@ -86,10 +86,10 @@ Ekranın en altına yerleşen, başparmak ergonomisine uygun neon arcade kontrol
 
 ```bash
 # Depoyu klonla
-git clone https://github.com/tahsingibi/kurye35-game.git
+git clone https://github.com/tahsingibi/vardiya.git
 
 # Proje dizinine gir
-cd kurye35-game
+cd vardiya
 
 # Bağımlılıkları yükle
 npm install
@@ -155,6 +155,40 @@ Bu proje [MIT Lisansı](LICENSE) kapsamında lisanslanmıştır. Detaylar için 
 ## 👨‍💻 Geliştirici
 
 - **Geliştirici**: Tahsin Sungur
-- **GitHub**: [tahsingibi/kurye35-game](https://github.com/tahsingibi/kurye35-game)
+- **GitHub**: [tahsingibi/vardiya](https://github.com/tahsingibi/vardiya)
 - **X (Twitter)**: [@tahsingibi](https://x.com/tahsingibi)
 - **Web**: [sungur.dev](https://sungur.dev)
+
+## Statik Cloudflare Pages yayını
+
+Oyun adı **Vardiya**, repo `tahsingibi/vardiya`, hedef adres
+`https://vardiya.sungur.dev`.
+
+Geliştirme `dev` branch’indedir. `dev → main` pull request’leri GitHub Actions
+üzerinde build ve gerçek tarayıcı testlerinden geçer. Yalnızca `main` push’ları
+`vardiya` Direct Upload Pages projesine statik `out/` dosyalarını yükler. Cloudflare build’i, Worker, Functions, D1, KV veya
+R2 kullanılmaz. tahsinbey.com ve İKRA kaynakları değiştirilmez. Canlı yayın kaynağı `main`, geliştirme kaynağı `dev` branch’idir. Vercel kullanılmaz.
+
+```sh
+npm ci
+npm run build
+npm run test:static
+npm start
+```
+
+`npm start` yalnızca `out/` dosyalarını `127.0.0.1:3100` üzerinde sunar.
+LAN erişimi için `HOST=0.0.0.0 npm start` kullanın.
+
+Skor paylaşım kartları mevcut tasarım bileşenleriyle tarayıcıda PNG olarak
+üretilir. `/api/og` yalnızca build sırasında üretilen sabit tanıtım görselidir;
+query parametreleriyle kişisel skor görseli üretmez. Oyun motoru, sesler,
+başarımlar ve ayarlar istemcide kalır. Aynı origin’deki eski kayıtlar korunarak
+yeni isimli anahtarlara kopyalanır. Yeni domain, tarayıcı depolaması bakımından
+ayrı bir origin olduğundan eski domainin skorlarını otomatik okuyamaz.
+
+Repository secrets: `VARDIYA_CLOUDFLARE_ACCOUNT_ID` ve yalnızca bu hesaba
+Cloudflare Pages Edit yetkili `VARDIYA_CLOUDFLARE_API_TOKEN`.
+Pages yetkisi hesap kapsamındadır; deploy betiği proje, branch ve hesabı ayrıca
+sınırlar. Token build adımına verilmez. Özel domain kullanıcı tarafından
+`vardiya` projesine bağlanmalı; DNS hedefi proje panelindeki gerçek pages.dev
+adresidir (`vardiya-cur.pages.dev`).

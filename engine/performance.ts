@@ -7,7 +7,7 @@ export interface RenderProfile {
   idleFps: number;
 }
 
-const LOW_PROFILE_SESSION_KEY = "kurye35-low-render-profile";
+const LOW_PROFILE_SESSION_KEY = "vardiya-low-render-profile";
 
 const LOW_PROFILE: RenderProfile = {
   quality: "low",

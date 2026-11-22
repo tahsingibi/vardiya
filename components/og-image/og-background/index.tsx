@@ -15,6 +15,7 @@ export const OgBackground: React.FC<OgBackgroundProps> = ({
       style={{
         display: "flex",
         position: "absolute",
+        zIndex: -1,
         top: 0,
         left: 0,
         right: 0,

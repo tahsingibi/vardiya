@@ -1,4 +1,4 @@
-const CACHE_NAME = "kurye35-v4-performance";
+const CACHE_NAME = "vardiya-v4-performance";
 const STATIC_ASSETS = [
   "/",
   "/manifest.webmanifest",

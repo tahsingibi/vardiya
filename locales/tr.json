@@ -1,12 +1,12 @@
 {
   "app": {
-    "title": "Kurye 35: İzmir Vardiyası",
+    "title": "Vardiya",
     "description": "İzmir trafiğinde gündüzden geceye yaşayan kurye arcade oyunu."
   },
   "menu": {
     "badge": "İZMİR · 35",
-    "title_main": "KURYE",
-    "title_sub": "35",
+    "title_main": "VARDİYA",
+    "title_sub": "",
     "tagline": "İZMİR VARDİYASI",
     "desc_1": "Gündüzden geceye yaşayan bir vardiya.",
     "desc_2": "Gazı açınca hız farkı belirgin. Frenle çizgini koru.",
@@ -136,15 +136,31 @@
     "download_card": "Görseli İndir",
     "copy_link": "Bağlantıyı Kopyala",
     "link_copied": "Bağlantı kopyalandı!",
-    "tweet_text": "Kurye 35: İzmir Vardiyası'nda {score} puan ve {deliveries} teslimat yaptım! Sıra sende: @tahsingibi",
-    "close": "Kapat"
+    "tweet_text": "Vardiya'da {score} puan ve {deliveries} teslimat yaptım! Sıra sende: @tahsingibi",
+    "close": "Kapat",
+    "image_error": "Görsel oluşturulamadı. Lütfen tekrar dene."
   },
   "phases": {
-    "konak": { "name": "KONAK", "sub": "Saat Kulesi · Çankaya" },
-    "kordon": { "name": "ALSANCAK", "sub": "Kordon · Liman hattı" },
-    "altinyol": { "name": "ALTINYOL", "sub": "Bayraklı · Karşıyaka yönü" },
-    "karsiyaka": { "name": "KARŞIYAKA", "sub": "Bostanlı sahil hattı" },
-    "cevre_yolu": { "name": "ÇEVRE YOLU", "sub": "O-30 Çevre Yolu ringi" }
+    "konak": {
+      "name": "KONAK",
+      "sub": "Saat Kulesi · Çankaya"
+    },
+    "kordon": {
+      "name": "ALSANCAK",
+      "sub": "Kordon · Liman hattı"
+    },
+    "altinyol": {
+      "name": "ALTINYOL",
+      "sub": "Bayraklı · Karşıyaka yönü"
+    },
+    "karsiyaka": {
+      "name": "KARŞIYAKA",
+      "sub": "Bostanlı sahil hattı"
+    },
+    "cevre_yolu": {
+      "name": "ÇEVRE YOLU",
+      "sub": "O-30 Çevre Yolu ringi"
+    }
   },
   "time_phases": {
     "safak": "ŞAFAK",
@@ -177,14 +193,38 @@
     "m5_desc": "Toplam 14 teslimata ulaş"
   },
   "achievements": {
-    "first": { "title": "İlk Teslimat", "sub": "İlk paketi yerine ulaştırdın." },
-    "combo": { "title": "Seri Başladı", "sub": "3 teslimatı seri halinde topladın." },
-    "speed": { "title": "100 Kulübü", "sub": "NOS olmadan 100 km/h üstünde kaldın." },
-    "clean": { "title": "Temiz Sürüş", "sub": "30 saniye ihlal yapmadan sürdün." },
-    "escape": { "title": "İz Kaybettiren", "sub": "Polisi temiz sürüşle atlattın." },
-    "trap": { "title": "Makas Ustası", "sub": "Takipteki polisi trafiğe düşürdün." },
-    "ten": { "title": "Çift Hane", "sub": "Tek vardiyada 10 teslimata ulaştın." },
-    "master": { "title": "Vardiya Ustası", "sub": "Bütün rota görevlerini tamamladın." }
+    "first": {
+      "title": "İlk Teslimat",
+      "sub": "İlk paketi yerine ulaştırdın."
+    },
+    "combo": {
+      "title": "Seri Başladı",
+      "sub": "3 teslimatı seri halinde topladın."
+    },
+    "speed": {
+      "title": "100 Kulübü",
+      "sub": "NOS olmadan 100 km/h üstünde kaldın."
+    },
+    "clean": {
+      "title": "Temiz Sürüş",
+      "sub": "30 saniye ihlal yapmadan sürdün."
+    },
+    "escape": {
+      "title": "İz Kaybettiren",
+      "sub": "Polisi temiz sürüşle atlattın."
+    },
+    "trap": {
+      "title": "Makas Ustası",
+      "sub": "Takipteki polisi trafiğe düşürdün."
+    },
+    "ten": {
+      "title": "Çift Hane",
+      "sub": "Tek vardiyada 10 teslimata ulaştın."
+    },
+    "master": {
+      "title": "Vardiya Ustası",
+      "sub": "Bütün rota görevlerini tamamladın."
+    }
   },
   "pwa": {
     "install_prompt": "Uygulamayı Cihazına Yükle",

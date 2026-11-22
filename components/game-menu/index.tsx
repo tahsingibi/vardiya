@@ -78,8 +78,7 @@ export const GameMenu: React.FC<GameMenuProps> = ({
         <div>
           <div className="ui-kicker mb-3">{t("menu.tagline")}</div>
           <div className="flex items-end gap-3 leading-none">
-            <h1 className="text-[3.8rem] font-black tracking-[-.075em] text-white drop-shadow-xl">{t("menu.title_main")}</h1>
-            <span className="mb-1 text-[3.8rem] font-black tracking-[-.08em] text-[#ffc766] drop-shadow-xl">{t("menu.title_sub")}</span>
+            <h1 className="text-[clamp(2.6rem,12vw,3.8rem)] font-black tracking-[-.075em] text-white drop-shadow-xl">{t("menu.title_main")}</h1>
           </div>
         </div>
 

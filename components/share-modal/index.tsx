@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { toPng } from "html-to-image";
+import { OgXCard, OgStoryCard } from "@/components/og-image";
 import { t } from "@/utils/localization";
 import { getAppUrl } from "@/utils/config";
 import { CloseIcon } from "@/components/ui/icons";
@@ -26,16 +28,23 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const appUrl = getAppUrl();
   const roundedScore = Math.floor(score);
 
-  const queryParams = new URLSearchParams({
-    score: roundedScore.toString(),
-    deliveries: deliveries.toString(),
-    reason: reason,
-    violations: violations.toString(),
-    highScore: Math.floor(highScore).toString(),
-  }).toString();
+  const previewRef = useRef<HTMLDivElement>(null);
+  const storyRef = useRef<HTMLDivElement>(null);
+  const [previewUrl, setPreviewUrl] = useState("");
+  const [shareError, setShareError] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const cardProps = { score: roundedScore, deliveries, reason, violations, highScore,
+    logoUrl: "/logo.png", host: "vardiya.sungur.dev" };
 
-  const ogUrl = `${appUrl}/api/og?${queryParams}`;
-  const storyUrl = `${appUrl}/api/og?${queryParams}&format=story`;
+  useEffect(() => {
+    let active = true;
+    if (previewRef.current) {
+      toPng(previewRef.current, { pixelRatio: 1 }).then((url) => {
+        if (active) setPreviewUrl(url);
+      }).catch(() => { if (active) setShareError(true); });
+    }
+    return () => { active = false; };
+  }, [roundedScore, deliveries, reason, violations, highScore]);
 
   const tweetText = t("share.tweet_text", {
     score: roundedScore.toLocaleString("tr-TR"),
@@ -50,19 +59,21 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   const handleDownloadStory = async () => {
+    if (!storyRef.current || downloading) return;
+    setDownloading(true);
+    setShareError(false);
     try {
-      const res = await fetch(storyUrl);
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
+      const url = await toPng(storyRef.current, { pixelRatio: 1 });
       const a = document.createElement("a");
       a.href = url;
-      a.download = `kurye35-skor-${roundedScore}.png`;
+      a.download = `vardiya-skor-${roundedScore}.png`;
       document.body.appendChild(a);
       a.click();
       a.remove();
-      window.URL.revokeObjectURL(url);
     } catch {
-      window.open(storyUrl, "_blank");
+      setShareError(true);
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -73,7 +84,12 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   return (
-    <div className="ui-modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4">
+    <>
+    <div aria-hidden="true" style={{ position: "fixed", left: -10000, top: 0, pointerEvents: "none" }}>
+      <div ref={previewRef} style={{ width: 1200, height: 630 }}><OgXCard {...cardProps} /></div>
+      <div ref={storyRef} style={{ width: 1080, height: 1920 }}><OgStoryCard {...cardProps} /></div>
+    </div>
+    <div className="ui-modal-backdrop fixed inset-0 z-[60] flex items-center justify-center p-4">
       <div className="ui-panel ui-rise relative w-full max-w-sm rounded-[28px] p-5 text-white space-y-5">
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
           <div>
@@ -95,13 +111,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         {/* Görsel Önizleme */}
         <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-950 aspect-[1200/630]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={ogUrl}
+          {previewUrl && <img
+            src={previewUrl}
             alt="Skor Kartı Önizleme"
             className="w-full h-full object-cover"
-          />
+          />}
         </div>
 
+        {shareError && <p role="alert">{t("share.image_error")}</p>}
         {/* Paylaşım Butonları */}
         <div className="space-y-2.5">
           <button
@@ -115,6 +132,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           </button>
 
           <button
+            disabled={downloading}
             onClick={handleDownloadStory}
             className="ui-primary flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl font-bold text-xs tracking-wider transition active:scale-95"
           >
@@ -133,5 +151,6 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         </div>
       </div>
     </div>
+    </>
   );
 };

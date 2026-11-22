@@ -27,6 +27,7 @@ export const OgStoryCard: React.FC<OgImageProps> = ({
         width: 1080,
         height: 1920,
         position: "relative",
+        isolation: "isolate",
         overflow: "hidden",
         backgroundColor: THEME.bgDark,
         padding: "140px 54px 120px",

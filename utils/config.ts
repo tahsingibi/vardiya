@@ -8,7 +8,7 @@ export function getAppUrl(): string {
   if (typeof window !== "undefined" && window.location.origin) {
     return window.location.origin;
   }
-  return "https://sungur.dev";
+  return "https://vardiya.sungur.dev";
 }
 
 export const SOCIAL_LINKS = {

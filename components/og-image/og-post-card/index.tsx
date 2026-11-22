@@ -27,6 +27,7 @@ export const OgPostCard: React.FC<OgImageProps> = ({
         width: 1080,
         height: 1350,
         position: "relative",
+        isolation: "isolate",
         overflow: "hidden",
         backgroundColor: THEME.bgDark,
         padding: "48px 48px",

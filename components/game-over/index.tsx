@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import { ShareModal } from "@/components/share-modal";
 import { t } from "@/utils/localization";
 import { ACHIEVEMENTS_DATA } from "@/engine/constants";
 import { SOCIAL_LINKS } from "@/utils/config";
@@ -29,10 +30,13 @@ export const GameOver: React.FC<GameOverProps> = ({
   unlockedCount,
   onRestart,
 }) => {
+  const [sharing, setSharing] = useState(false);
   const isBusted = reason === "busted";
   const totalBadges = Object.keys(ACHIEVEMENTS_DATA).length;
 
   return (
+    <>
+    {sharing && <ShareModal score={score} deliveries={deliveries} reason={reason} violations={violations} highScore={highScore} onClose={() => setSharing(false)} />}
     <div className="ui-modal-backdrop absolute inset-0 z-40 flex flex-col justify-between px-5 pb-6 pt-[max(1.5rem,env(safe-area-inset-top))] pointer-events-auto select-none">
       <div className="ui-rise space-y-3">
         <div
@@ -94,6 +98,7 @@ export const GameOver: React.FC<GameOverProps> = ({
       </div>
 
       <div className="space-y-2.5">
+        <button onClick={() => setSharing(true)} className="ui-secondary w-full rounded-2xl px-5 py-3 text-xs font-black">{t("game_over.share_button")}</button>
         <button
           onClick={onRestart}
           className="ui-primary group flex w-full items-center justify-between rounded-2xl px-5 py-4 text-xs font-black tracking-wider transition-all"
@@ -125,5 +130,6 @@ export const GameOver: React.FC<GameOverProps> = ({
         </div>
       </div>
     </div>
+    </>
   );
 };
