@@ -124,7 +124,7 @@ export const OgGameScene: React.FC<OgGameSceneProps> = ({
         {/* Far Işığı Yayılımı */}
         <polygon points="170,390 230,390 280,260 120,260" fill="url(#headlight)" />
 
-        {/* OYUNCU: KURYE 35 MOTORU */}
+        {/* OYUNCU: VARDİYA MOTORU */}
         <g transform="translate(172, 340)">
           {/* NOS Ateşi / Egzoz */}
           {!isCrash && (

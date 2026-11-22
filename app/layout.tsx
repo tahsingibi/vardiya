@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://vardiya.sungur.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Kurye 35: İzmir Vardiyası",
+  title: "Vardiya",
   description:
-    "Kurye 35: İzmir trafiğinde gündüzden geceye motosikletli kurye vardiyası. Trafikten sıyrıl, teslimat yap, polis takibinden kurtul.",
+    "Vardiya: İzmir trafiğinde gündüzden geceye motosikletli kurye vardiyası. Trafikten sıyrıl, teslimat yap, polis takibinden kurtul.",
   manifest: "/manifest.webmanifest",
   authors: [{ name: "@tahsingibi", url: "https://sungur.dev" }],
   creator: "@tahsingibi · sungur.dev",
-  keywords: ["Kurye 35", "İzmir", "motosiklet", "kurye", "arcade", "browser game", "PWA"],
+  keywords: ["Vardiya", "İzmir", "motosiklet", "kurye", "arcade", "browser game", "PWA"],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Kurye 35",
+    title: "Vardiya",
   },
   openGraph: {
     type: "website",
-    title: "Kurye 35: İzmir Vardiyası",
+    title: "Vardiya",
     description: "İzmir trafiğinde gündüzden geceye yaşayan kurye arcade oyunu.",
     url: siteUrl,
-    siteName: "Kurye 35",
+    siteName: "Vardiya",
     images: [
       {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: "Kurye 35: İzmir Vardiyası",
+        alt: "Vardiya",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kurye 35: İzmir Vardiyası",
+    title: "Vardiya",
     description: "İzmir trafiğinde motosikletli kurye vardiyası.",
     creator: "@tahsingibi",
     images: ["/api/og"],
@@ -74,8 +74,9 @@ export default function RootLayout({
             __html: `
               if ('serviceWorker' in navigator) {
                 var refreshingForNewWorker = false;
+              var hadServiceWorker = Boolean(navigator.serviceWorker.controller);
                 navigator.serviceWorker.addEventListener('controllerchange', function() {
-                  if (refreshingForNewWorker) return;
+                  if (!hadServiceWorker || refreshingForNewWorker) return;
                   refreshingForNewWorker = true;
                   window.location.reload();
                 });

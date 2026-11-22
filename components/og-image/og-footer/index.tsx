@@ -12,7 +12,7 @@ export const OgFooter: React.FC<OgFooterProps> = ({
   ctaText = "BU SKORU GEÇEBİLİR MİSİN?",
   isCompact = false,
 }) => {
-  const displayUrl = host || "kurye35.com";
+  const displayUrl = host || "vardiya.sungur.dev";
 
   return (
     <div

@@ -27,6 +27,7 @@ export const OgXCard: React.FC<OgImageProps> = ({
         width: 1200,
         height: 630,
         position: "relative",
+        isolation: "isolate",
         overflow: "hidden",
         backgroundColor: THEME.bgDark,
         padding: "32px 40px",

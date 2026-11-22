@@ -200,7 +200,7 @@ export class Player {
     roundRect(ctx, 13, 26, 26, 9, 2);
     ctx.fill();
 
-    // Tavan & Kurye 35 Kutusu
+    // Tavan & Vardiya Kutusu
     ctx.fillStyle = "#1e2631";
     roundRect(ctx, 12, 38, 28, 22, 4);
     ctx.fill();

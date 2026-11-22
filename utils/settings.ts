@@ -8,11 +8,11 @@ export interface SoundSettings {
   effects: boolean;
 }
 
-const JOYSTICK_KEY = "kurye35_joystick_pos_side";
-const BUTTON_SIZE_KEY = "kurye35_button_size";
-const SOUND_KEY = "kurye35_sound_enabled";
-const SOUND_SETTINGS_KEY = "kurye35_sound_settings";
-const VEHICLE_KEY = "kurye35_selected_vehicle";
+const JOYSTICK_KEY = "vardiya_joystick_pos_side";
+const BUTTON_SIZE_KEY = "vardiya_button_size";
+const SOUND_KEY = "vardiya_sound_enabled";
+const SOUND_SETTINGS_KEY = "vardiya_sound_settings";
+const VEHICLE_KEY = "vardiya_selected_vehicle";
 
 export function getJoystickPosition(): JoystickPosition {
   if (typeof window === "undefined") return "left";

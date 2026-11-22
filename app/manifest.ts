@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Kurye 35: İzmir Vardiyası",
-    short_name: "Kurye 35",
+    name: "Vardiya",
+    short_name: "Vardiya",
     description: "İzmir trafiğinde gündüzden geceye motosikletli kurye vardiyası.",
     start_url: "/",
     display: "standalone",

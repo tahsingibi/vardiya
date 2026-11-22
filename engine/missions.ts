@@ -43,7 +43,7 @@ export function getMissionProgressText(
 export function loadStoredAchievements(): Set<string> {
   if (typeof window === "undefined") return new Set();
   try {
-    const raw = localStorage.getItem("kurye35_achievements");
+    const raw = localStorage.getItem("vardiya_achievements");
     return new Set(raw ? JSON.parse(raw) : []);
   } catch {
     return new Set();
@@ -53,7 +53,7 @@ export function loadStoredAchievements(): Set<string> {
 export function saveAchievements(unlocked: Set<string>): void {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem("kurye35_achievements", JSON.stringify([...unlocked]));
+    localStorage.setItem("vardiya_achievements", JSON.stringify([...unlocked]));
   } catch {}
 }
 
@@ -61,8 +61,8 @@ export function loadScores(): { highScore: number; bestDeliveries: number } {
   if (typeof window === "undefined") return { highScore: 0, bestDeliveries: 0 };
   try {
     return {
-      highScore: +(localStorage.getItem("kurye35_score") || 0),
-      bestDeliveries: +(localStorage.getItem("kurye35_deliveries") || 0),
+      highScore: +(localStorage.getItem("vardiya_score") || 0),
+      bestDeliveries: +(localStorage.getItem("vardiya_deliveries") || 0),
     };
   } catch {
     return { highScore: 0, bestDeliveries: 0 };
@@ -72,9 +72,9 @@ export function loadScores(): { highScore: number; bestDeliveries: number } {
 export function saveScores(score: number, deliveries: number): void {
   if (typeof window === "undefined") return;
   try {
-    const prevScore = +(localStorage.getItem("kurye35_score") || 0);
-    const prevDel = +(localStorage.getItem("kurye35_deliveries") || 0);
-    if (score > prevScore) localStorage.setItem("kurye35_score", String(Math.floor(score)));
-    if (deliveries > prevDel) localStorage.setItem("kurye35_deliveries", String(deliveries));
+    const prevScore = +(localStorage.getItem("vardiya_score") || 0);
+    const prevDel = +(localStorage.getItem("vardiya_deliveries") || 0);
+    if (score > prevScore) localStorage.setItem("vardiya_score", String(Math.floor(score)));
+    if (deliveries > prevDel) localStorage.setItem("vardiya_deliveries", String(deliveries));
   } catch {}
 }

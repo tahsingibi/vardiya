@@ -1,12 +1,12 @@
 {
   "app": {
-    "title": "Courier 35: Izmir Shift",
+    "title": "Vardiya",
     "description": "An arcade motorcycle courier shift in Izmir traffic from day to night."
   },
   "menu": {
     "badge": "IZMIR · 35",
-    "title_main": "COURIER",
-    "title_sub": "35",
+    "title_main": "VARDİYA",
+    "title_sub": "",
     "tagline": "IZMIR SHIFT",
     "desc_1": "A shift living from day till night.",
     "desc_2": "Speed increases sharply with throttle. Brake to hold your line.",
@@ -111,15 +111,31 @@
     "download_card": "Download Image",
     "copy_link": "Copy Link",
     "link_copied": "Link copied!",
-    "tweet_text": "I got {score} points and {deliveries} deliveries in Courier 35: Izmir Shift! Can you beat it? @tahsingibi",
-    "close": "Close"
+    "tweet_text": "I got {score} points and {deliveries} deliveries in Vardiya! Can you beat it? @tahsingibi",
+    "close": "Close",
+    "image_error": "Could not create the image. Please try again."
   },
   "phases": {
-    "konak": { "name": "KONAK", "sub": "Clock Tower · Cankaya" },
-    "kordon": { "name": "ALSANCAK", "sub": "Kordon · Port line" },
-    "altinyol": { "name": "ALTINYOL", "sub": "Bayrakli · Karsiyaka route" },
-    "karsiyaka": { "name": "KARSIYAKA", "sub": "Bostanli coastal traffic" },
-    "cevre_yolu": { "name": "RING ROAD", "sub": "O-30 Highway ring" }
+    "konak": {
+      "name": "KONAK",
+      "sub": "Clock Tower · Cankaya"
+    },
+    "kordon": {
+      "name": "ALSANCAK",
+      "sub": "Kordon · Port line"
+    },
+    "altinyol": {
+      "name": "ALTINYOL",
+      "sub": "Bayrakli · Karsiyaka route"
+    },
+    "karsiyaka": {
+      "name": "KARSIYAKA",
+      "sub": "Bostanli coastal traffic"
+    },
+    "cevre_yolu": {
+      "name": "RING ROAD",
+      "sub": "O-30 Highway ring"
+    }
   },
   "time_phases": {
     "safak": "DAWN",
@@ -152,14 +168,38 @@
     "m5_desc": "Reach 14 total deliveries"
   },
   "achievements": {
-    "first": { "title": "First Delivery", "sub": "Delivered your first parcel." },
-    "combo": { "title": "Streak Began", "sub": "Gathered 3 deliveries in a streak." },
-    "speed": { "title": "100 Club", "sub": "Maintained 100+ km/h without NOS." },
-    "clean": { "title": "Clean Drive", "sub": "Drove 30s without violation." },
-    "escape": { "title": "Trail Blazer", "sub": "Evaded police with clean driving." },
-    "trap": { "title": "Traffic Weaver", "sub": "Trapped pursuers into traffic." },
-    "ten": { "title": "Double Digits", "sub": "Reached 10 deliveries in one shift." },
-    "master": { "title": "Shift Master", "sub": "Completed all route missions." }
+    "first": {
+      "title": "First Delivery",
+      "sub": "Delivered your first parcel."
+    },
+    "combo": {
+      "title": "Streak Began",
+      "sub": "Gathered 3 deliveries in a streak."
+    },
+    "speed": {
+      "title": "100 Club",
+      "sub": "Maintained 100+ km/h without NOS."
+    },
+    "clean": {
+      "title": "Clean Drive",
+      "sub": "Drove 30s without violation."
+    },
+    "escape": {
+      "title": "Trail Blazer",
+      "sub": "Evaded police with clean driving."
+    },
+    "trap": {
+      "title": "Traffic Weaver",
+      "sub": "Trapped pursuers into traffic."
+    },
+    "ten": {
+      "title": "Double Digits",
+      "sub": "Reached 10 deliveries in one shift."
+    },
+    "master": {
+      "title": "Shift Master",
+      "sub": "Completed all route missions."
+    }
   },
   "pwa": {
     "install_prompt": "Install App on Device",
